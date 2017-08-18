@@ -14,8 +14,8 @@ var orm = {
 
     },
 
-     insertOne:function(table, condition, cb){
-        connection.query("UPDATE" + table + "SET devoured = true WHERE id= "+condition +";", function(err,result){
+     update:function(table, condition, cb){
+        connection.query('UPDATE burgers SET ? WHERE ?', [{devoured: true}, {id:condition}], function(err, result){
              if(err) {throw err};
              console.log(result);
              cb(result)

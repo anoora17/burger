@@ -20,10 +20,16 @@
                      </div>
                      {{/unless}}
                      {{/each}}
-
-
                          </div>
                     </div>
+                    <div class="col-xs-6 text-center" class="task">
+                      {{#each burger_data}}
+                      {{#if this.devoured}}
+                      <input class ="from-control" type="text" placeholder = "{{ this.id}}. {{this.burger_name}}" readonly>
+                      {{/if}}
+                      {{/each}}
+                    </div>
+
+                    
                 </div>
             </div>
-        </div>
