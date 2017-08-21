@@ -7,8 +7,67 @@
     <link href="css/style.css">
 
     <title>Da-burger</title>
+    <link rel="stylesheet" href="./css/burger.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
 </head>
 <body>
+<div class="container">
+      
+      <br>
+
+      <!-- Burger Image -->
+      <center>
+        <div class="row">
+          <img src="../img/download.jpg">
+        </div>
+      </center>
+
+      <!-- Page Title -->
+      <center>
+        <h1 class="red_font">Eat da Burger! <small class="tiny_text"> Order</small></h1>
+      </center>
+      
+      <br>
     {{{body}}}
+		
+<br><br>
+
+      <!-- Input New Burgers Form -->
+      <form action="burger/create" method="POST"> 
+        
+        <!-- Text Area Input -->
+        <div class="row">
+          <!-- Empty Div to help center textarea -->
+          <div class="col-md-3"></div> 
+
+          <!-- Burger Input Box -->
+          <div class="form-group col-md-6">
+            <center><label for="new_burger" class="red_font">Request a new burger and place your order!</label></center>
+            <textarea class="form-control" columns="8" rows="4" id="new_burger" name="burger_name"></textarea>
+          </div>
+
+          <!-- Empty Div to help center textarea -->
+          <div class="col-md-3"></div> 
+        </div>
+      
+        <!-- Submit Button -->
+        <center>
+          <button id="submit-button" type="submit" class="btn btn-danger">Place Order</button>
+        </center>
+
+      </form>
+
+      <br>
+
+    </div>
+
+
+
+
+
+     <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
+
+    <!-- Link in Local JavaScript (for sound effects) -->
+    <script src="/assets/javascript/burger_sounds.js"></script>
 </body>
 </html>

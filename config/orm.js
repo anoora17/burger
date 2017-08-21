@@ -3,14 +3,11 @@ var connection = require('./connection.js');
 var orm = {
 
     selectAll: function(table, cb) {
-        var queryString = "SELECT * FROM "
-        connection.query(queryString + table + ";", function (err, result){
-            if (err){
-                throw err;
-            }
+
+        connection.query("SELECT * FROM " + table + ";", function (err, result){ if (err){throw err};
             console.log(result);
         cb(result);
-        })
+      });
 
     },
 
@@ -18,8 +15,17 @@ var orm = {
         connection.query('UPDATE burgers SET ? WHERE ?', [{devoured: true}, {id:condition}], function(err, result){
              if(err) {throw err};
              console.log(result);
-             cb(result)
+             cb(result);
          });
+
+     },
+     create:function(data, cb ) {
+       var mySQLQuery = "INSERT INTO burgers (burger_name) VALUES (??)";
+       connection.query(mySQLQuery,[{burger_name:data}], function (err, result) {
+      if (err) throw err;
+      console.log(result)
+      cb(result);
+    });
 
      }
 
