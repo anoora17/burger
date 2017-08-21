@@ -1,34 +1,41 @@
       <div class = "conatiner">
             <div class="row">
-              <div class = "col-xs-6 text-center" id ="top-bar">
-                  <h1 class ="res_font">Eat Da Burger! </h1>
-                </div>
-                <div class="col-xs-6 text-center" class="task">
+
+
+                <div class="col-xs-3 text-center" class="task">
                     <div class="row">
+                    <ul>
                         {{#each burger_data}}
                         {{#unless this.devoured}}
-                        <div class" col-xs-9 text-center">
-                       <pre>{{this.id}}. {{this.burger_name}}</pre>
-                        </div>
-                     <div class="col-xs-3 text-center">
-                    <form method="POST" action="/burgers/update?_method=PUT"          class="button-size">
-                      <input type="hidden" name="burger_id" type="text"
-                      value={{this.id}}>
-                      <br>
-                      <button type="submit" class="btn btn-default">DEVOUR IT!</button>
-                        </form>
-                     </div>
+                      <li>
+                             <div class" col-xs-3 text-center">
+                               <pre>{{this.id}}. {{this.burger_name}}</pre>
+                              </div>
+                   <div class="col-mds-3 text-center">
+                                <form method="POST" action="/burgers/update?_method=PUT"  class="button-size">
+                                    <input type="hidden" name="burger_id" type="true"
+                                    value={{this.id}}>
+                                    <br>
+                                    <button type="submit" class="btn btn-default">DEVOUR IT!</button>
+                                  </form>
+                            </div>
+                     </li>
                      {{/unless}}
                      {{/each}}
-                         </div>
+
+                     </ul>
+                 </div>
                     </div>
                     <div class="col-xs-6 text-center" class="task">
                       {{#each burger_data}}
                       {{#if this.devoured}}
-                      <input class ="from-control" type="text" placeholder = "{{ this.id}}. {{this.burger_name}}" readonly>
+                      <input class ="from-control" type="text" placeholder = "{{ this.id}}. {{this.burger_name}}" >
                       {{/if}}
                       {{/each}}
                     </div>
+                    <br>
+                    <br>
+                    <br>
                     <div class="container">
                       <div class="row">
                         <div class="col-xs-12 text-center enter_section">

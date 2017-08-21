@@ -13,8 +13,9 @@ var burger = {
         });
 
     },
-    create: function(data,cb){
-      orm.create('burgers', 'burger_name',data, function(res){
+        create: function(table, cols, vals, cb) {
+
+      orm.create('burgers', cols,vals, function(res){
         console.log(res)
         cb(res)
       });
