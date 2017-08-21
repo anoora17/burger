@@ -34,26 +34,18 @@ var orm = {
     },
 
      update:function(table, condition, cb){
-        connection.query('UPDATE burgers SET ? WHERE ?', [{devoured: true}, {id:condition}], function(err, result){
+        connection.query('UPDATE '+ table+' SET devoured=true WHERE id = '+ condition, function(err, result){
              if(err) {throw err};
              console.log(result);
              cb(result);
          });
 
      },
-     create: function(table, cols, vals, cb) {
-    var queryString = "INSERT INTO " + table;
+     create: function( table, vals, cb) {
+    var queryString = "INSERT INTO "+table+"(burger_name)  VALUES ('"+vals+"')" ;
 
-    queryString += " (";
-    queryString += cols.toString();
-    queryString += ") ";
-    queryString += "VALUES (";
-    queryString += printQuestionMarks(vals.length);
-    queryString += ") ";
 
-    console.log(queryString);
-
-    connection.query(queryString, vals, function(err, result) {
+      connection.query(queryString, function(err, result) {
       if (err) {
         throw err;
       }

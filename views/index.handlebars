@@ -8,13 +8,12 @@
                         {{#each burger_data}}
                         {{#unless this.devoured}}
                       <li>
-                             <div class" col-xs-3 text-center">
+                             <div class" col-xs-6 text-center">
                                <pre>{{this.id}}. {{this.burger_name}}</pre>
                               </div>
                    <div class="col-mds-3 text-center">
                                 <form method="POST" action="/burgers/update?_method=PUT"  class="button-size">
-                                    <input type="hidden" name="burger_id" type="true"
-                                    value={{this.id}}>
+                              <input type="hidden" name="burger_id" type="text"  value={{this.id}}>
                                     <br>
                                     <button type="submit" class="btn btn-default">DEVOUR IT!</button>
                                   </form>
@@ -29,7 +28,7 @@
                     <div class="col-xs-6 text-center" class="task">
                       {{#each burger_data}}
                       {{#if this.devoured}}
-                      <input class ="from-control" type="text" placeholder = "{{ this.id}}. {{this.burger_name}}" >
+                      <input class ="from-control" type="text" placeholder = "{{ this.id}}. {{this.burger_name}}" readonly>
                       {{/if}}
                       {{/each}}
                     </div>
@@ -38,7 +37,7 @@
                     <br>
                     <div class="container">
                       <div class="row">
-                        <div class="col-xs-12 text-center enter_section">
+                  <div class="col-xs-12 text-center enter_section">
                           <form action="/burger/create" method="POST">
                             <input type="text" name ="burger_name" class="from-control" value="" id="enter_text">
                             <button type="submit" class="btn btn-primary" id="text-enter-button">SUBMIT</button>

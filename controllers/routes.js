@@ -10,14 +10,17 @@ router.get('/', function(req, res){
 
 });
 router.put('/burgers/update', function(req, res){
-   burger.update(req.body.id, function(result){
+   var id = req.body.burger_id
+   burger.update(id, function(result){
        console.log(result);
        res.redirect('/')
-   })
+   });
 });
-router.post('/burger/create',function(req, data){
 
-  burger.create(['burger_name', 'devoured'], [req.body.burger_name, false], function(result) {
+router.post('/burger/create',function(req, res){
+      var name= req.body.burger_name;
+      console.log(name);
+  burger.create(name , function(result) {
     res.redirect('/');
 
 });
